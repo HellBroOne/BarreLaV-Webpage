@@ -1,0 +1,72 @@
+--color-hot-rose-50: #faeaf3;
+--color-hot-rose-100: #f5d6e6;
+--color-hot-rose-200: #ebadcd;
+--color-hot-rose-300: #e184b4;
+--color-hot-rose-400: #d75b9b;
+--color-hot-rose-500: #cd3282;
+--color-hot-rose-600: #a42868;
+--color-hot-rose-700: #7b1e4e;
+--color-hot-rose-800: #521434;
+--color-hot-rose-900: #290a1a;
+--color-hot-rose-950: #1d0712;
+
+--color-cotton-candy-50: #ffe6ea;
+--color-cotton-candy-100: #fecdd5;
+--color-cotton-candy-200: #fe9aab;
+--color-cotton-candy-300: #fd6881;
+--color-cotton-candy-400: #fd3556;
+--color-cotton-candy-500: #fc032c;
+--color-cotton-candy-600: #ca0223;
+--color-cotton-candy-700: #97021b;
+--color-cotton-candy-800: #650112;
+--color-cotton-candy-900: #320109;
+--color-cotton-candy-950: #230006;
+
+--color-mauve-magic-50: #f6e6ff;
+--color-mauve-magic-100: #eccdfe;
+--color-mauve-magic-200: #d99afe;
+--color-mauve-magic-300: #c668fd;
+--color-mauve-magic-400: #b435fd;
+--color-mauve-magic-500: #a103fc;
+--color-mauve-magic-600: #8102ca;
+--color-mauve-magic-700: #600297;
+--color-mauve-magic-800: #400165;
+--color-mauve-magic-900: #200132;
+--color-mauve-magic-950: #170023;
+
+--color-neon-pink-50: #ffe6f1;
+--color-neon-pink-100: #ffcce4;
+--color-neon-pink-200: #fe9ac9;
+--color-neon-pink-300: #fe67ad;
+--color-neon-pink-400: #fe3492;
+--color-neon-pink-500: #fe0177;
+--color-neon-pink-600: #cb015f;
+--color-neon-pink-700: #980147;
+--color-neon-pink-800: #650130;
+--color-neon-pink-900: #330018;
+--color-neon-pink-950: #240011;
+
+--color-sweet-peony-50: #f8edf2;
+--color-sweet-peony-100: #f0dbe4;
+--color-sweet-peony-200: #e2b6c9;
+--color-sweet-peony-300: #d392ae;
+--color-sweet-peony-400: #c56d93;
+--color-sweet-peony-500: #b64978;
+--color-sweet-peony-600: #923a60;
+--color-sweet-peony-700: #6d2c48;
+--color-sweet-peony-800: #491d30;
+--color-sweet-peony-900: #240f18;
+--color-sweet-peony-950: #1a0a11;
+
+--color-berry-blush-50: #f7eef3;
+--color-berry-blush-100: #efdce7;
+--color-berry-blush-200: #dfb9cf;
+--color-berry-blush-300: #cf96b6;
+--color-berry-blush-400: #bf739e;
+--color-berry-blush-500: #af5086;
+--color-berry-blush-600: #8c406b;
+--color-berry-blush-700: #693050;
+--color-berry-blush-800: #462036;
+--color-berry-blush-900: #23101b;
+--color-berry-blush-950: #180b13;
+

@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Italianno&family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Italianno&family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Climate+Crisis:YEAR@1979&family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mina:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@200..700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+    --font-italianno: "Italianno", cursive;
+    --font-lobster: "Lobster", cursive;
+    --font-aguafina: "Aguafina Script", cursive;
+    --font-russo: "Russo One", cursive;
+    --font-mina: "Mina", sans-serif;
+    --font-stack-sans: "Stack Sans Headline", sans-serif;
+}
