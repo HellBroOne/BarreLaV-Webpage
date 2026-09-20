@@ -1,18 +1,28 @@
-//lg:-translate-y-75 -translate-y-130 
-function sectionImage({title, body, image, className}){
+function SectionImage({ title, body, image, className }) {
     return (
-        <section id="project-card" className="items-center gap-6">
-            <div className={` flex flex-row lg:flex-row items-center gap-6 p-10 ${className}`}>
-                <div className="flex-1 lg:p-8  rounded-sm ">
-                    <p className="lg:text-2xl text-md font-bold text-white justify-left ">{title}</p>
-                    <p className="lg:text-lg text-xs text-white justify-justify ">{body}</p>
+        <section id="project-card" className="w-full">
+            <div className={`flex flex-col-reverse lg:flex-row items-center justify-between gap-8 p-6 md:p-10 lg:p-12 ${className}`}>
+                {/* Texto */}
+                <div className="flex-1 text-center lg:text-left space-y-3">
+                    <h2 className="text-lg md:text-2xl lg:text-3xl font-bold text-white uppercase tracking-wide">
+                        {title}
+                    </h2>
+                    <p className="text-sm md:text-base lg:text-lg text-white/90 leading-relaxed text-justify lg:text-left">
+                        {body}
+                    </p>
                 </div>
-                <div>
-                    <img src={image} className="flex-1 rounded-md lg:w-100 w-50  h-auto lg:-translate-x-15 "/>
+                
+                {/* Imagen */}
+                <div className="w-full lg:w-1/2 flex justify-center">
+                    <img 
+                        src={image} 
+                        alt={title}
+                        className="w-48 sm:w-56 lg:w-72 max-w-[200px] sm:max-w-xs h-auto rounded-md object-cover shadow-sm"
+                    />
                 </div>
             </div>
         </section>
-    )
+    );
 }
 
-export default sectionImage;
+export default SectionImage;

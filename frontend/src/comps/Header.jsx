@@ -9,7 +9,7 @@ function Header(){
     const links = [
         { name: "INICIO", to: "/" },
         { name: "CLASES", to: "/clases" },
-        { name: "HORARIOS", to: "/horarios" },
+        //{ name: "HORARIOS", to: "/horarios" },
         { name: "COSTOS", to: "/costos" },
         { name: "UBICACION", to: "/ubicacion" }
     ];
@@ -43,7 +43,7 @@ function Header(){
                 ))}
 
                 <Link
-                    to="/reservar"
+                    to="/horarios"
                     className="rounded-lg bg-[#c56d93] px-4 py-2 text-md font-semibold text-white transition hover:bg-[#6d2c48]"
                 >
                     Reserva ahora!
@@ -88,7 +88,7 @@ function Header(){
                 ))}
 
                 <Link
-                    to="/reservar"
+                    to="/horarios"
                     onClick={handleLinkClick}
                     className="my-3 rounded-lg bg-[#c56d93] px-4 py-3 text-center text-md font-semibold text-white transition hover:bg-[#6d2c48]"
                 >

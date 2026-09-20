@@ -15,7 +15,7 @@ function Ubicacion() {
                     <hr className='border-2 '></hr>
             </section> 
 
-            <div className='flex flex-row lg:p-5 items-center p-10 bg-[#fe9aab]'>
+            <div className='flex flex-row lg:p-5 items-center lg:p-10  bg-[#fe9aab]'>
                 <div className='flex justify-center lg:p-5 -translate-y-5'>
                     <FaLocationDot size={50}/>
                 </div>
@@ -34,7 +34,7 @@ function Ubicacion() {
                         allowFullScreen
                         loading="lazy" 
                         referrerPolicy="strict-origin-when-cross-origin"
-                        className='w-55 h-auto lg:h-75 lg:w-100 rounded-lg'
+                        className='w-50 h-auto lg:h-75 lg:w-100 rounded-lg'
                         z-index="10">    
                     </iframe>
                 </div>

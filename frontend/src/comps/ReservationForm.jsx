@@ -24,7 +24,7 @@ function ReservationForm({ claseId }) {
 
             console.log(reserva);
 
-            setMensaje("¡Reserva realizada correctamente!");
+            setMensaje(`¡Reserva realizada correctamente a la clase ${claseId}!`);
             setNombre("");
             setEdad("");
             setTieneLesion(false);

@@ -1,8 +1,11 @@
 import Header from '../comps/Header'
 import Footer from '../comps/Footer'
 import ReservationForm from '../comps/ReservationForm';
+import { useParams } from 'react-router-dom'
 
 function Reservar() {
+    const { claseId } = useParams();
+
     return (
         <>
             <div className="bg-[#e2b6c9] flex flex-col w-full"> 
@@ -13,7 +16,7 @@ function Reservar() {
                     <hr className='border-2 '></hr>
                 </section> 
                 <div className='p-5'>
-                     <ReservationForm claseId={1}/>
+                     <ReservationForm claseId={claseId}/>
                 <div/>
             </div>
             <Footer />

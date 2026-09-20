@@ -60,19 +60,23 @@ class CrearReservaView(APIView):
         return Response(data, status=status.HTTP_200_OK)
 
 class ListaClasesView(APIView):
-
     def get(self, request):
         clases = Clase.objects.all()
+
         data = []
+
         for clase in clases:
             data.append({
-                'id': clase.id,
-                'fecha': clase.fecha,
-                'hora': clase.hora,
-                'tipo': clase.tipo,
-                'capacidad': clase.capacidad,
-                'lugares_ocupados': clase.lugares_ocupados(),
-                'lugares_disponibles': clase.lugares_disponibles(),
+                "id": clase.id,
+                "fecha": clase.fecha,
+                "hora": clase.hora.strftime("%H:%M"),
+                "hora_fin": clase.hora_fin.strftime("%H:%M"),
+                "tipo": clase.tipo,
+                "enfoque": clase.enfoque,
+                "color": clase.color,
+                "capacidad": clase.capacidad,
+                "lugares_ocupados": clase.lugares_ocupados(),
+                "lugares_disponibles": clase.lugares_disponibles(),
             })
 
         return Response(data)

@@ -28,7 +28,7 @@ function App() {
         <Route path="/horarios" element={<Horario />} />
         <Route path="/costos" element={<Costos />} />
         <Route path="/ubicacion" element={<Ubicacion />} />
-        <Route path="/reservar" element={<Reservar />} />
+        <Route path="/reservar/:claseId" element={<Reservar />} />
       </Routes>
     </BrowserRouter>
   )

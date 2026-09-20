@@ -25,22 +25,6 @@ function Footer() {
                 </a>
             </div>
 
-            {/* Enlaces */}
-            <div className="flex justify-end gap-6 text-sm md:text-base font-medium underline">
-                <a
-                    href="#"
-                    className="hover:opacity-60 transition-opacity"
-                >
-                    TÉRMINOS
-                </a>
-
-                <a
-                    href="#"
-                    className="hover:opacity-60 transition-opacity"
-                >
-                    PRIVACIDAD
-                </a>
-            </div>
 
         </footer>
     );

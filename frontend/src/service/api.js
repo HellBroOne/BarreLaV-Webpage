@@ -12,7 +12,6 @@ export async function crearReserva(datos) {
     );
 
     const data = await response.json();
-
     if (!response.ok) {
         throw new Error(
             data.error || "Error al crear la reserva"
@@ -23,7 +22,6 @@ export async function crearReserva(datos) {
 }
 
 export async function obtenerClases() {
-
     const response = await fetch(
         `${API_URL}/clases/`
     );
