@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
+import barrmain from "../assets/barr1.png";
 // lg:-translate-y-25 -translate-y-10
 
 function MainImg() {
     return (
         <div className="flex flex-col items-center justify-center h-screen"> 
-            <img src="/src/assets/barr1.png" alt="Barre LaV" className="w-150 md:w-96 lg:w-[2500px] h-auto lg:translate-y-10" />
+            <img src={barrmain} alt="Barre LaV" className="w-150 md:w-96 lg:w-[2500px] h-auto lg:translate-y-10" />
             <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}

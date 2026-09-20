@@ -3,6 +3,7 @@ import Footer from '../comps/Footer'
 import ClassCont from '../comps/Class-cont'
 import { FaLocationDot } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
+import qr from "../assets/barre-qr.png";
 
 function Ubicacion() {
     return (
@@ -57,7 +58,7 @@ function Ubicacion() {
                         </p>
                     </div>
                     <div className='flex flex-col '>
-                        <img src="/src/assets/barre-qr.png" alt="QR para la página de Barre LaV" className="w-55 h-auto rounded-lg lg:translate-x-60"/>
+                        <img src={qr} alt="QR para la página de Barre LaV" className="w-55 h-auto rounded-lg lg:translate-x-60"/>
                     </div>
                 </div>
 
