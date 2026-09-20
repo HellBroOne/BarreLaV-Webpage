@@ -1,0 +1,11 @@
+# Django
+backend/db.sqlite3
+__pycache__/
+*.py[cod]
+
+# Environment variables
+.env
+.env.*
+
+# Python
+*.pyc
