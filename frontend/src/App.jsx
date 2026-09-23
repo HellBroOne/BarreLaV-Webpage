@@ -13,12 +13,23 @@ import Horario from './pages/Horario'
 import Costos from './pages/Costos'
 import Ubicacion from './pages/Ubicacion'
 import Reservar from './pages/Reservar'
+import AdminLogin from "./pages/AdminLogin";
+import Admin from "./pages/Admin";
+
+import { useEffect } from "react";
+import { obtenerClases } from "./service/api";
 
 function App() {
   //const [count, setCount] = useState(0)
   //
   //<Route path="/nosotros" element={<Nosotros />} />
   //<Route path="/contacto" element={<Contacto />} />
+
+  useEffect(() => {
+      obtenerClases().catch((error) => {
+          console.error("No se pudieron precargar las clases:", error);
+      });
+  }, []);
 
   return (
     <BrowserRouter>
@@ -29,6 +40,8 @@ function App() {
         <Route path="/costos" element={<Costos />} />
         <Route path="/ubicacion" element={<Ubicacion />} />
         <Route path="/reservar/:claseId" element={<Reservar />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </BrowserRouter>
   )

@@ -3,7 +3,8 @@ const API_URL = import.meta.env.VITE_API_URL;
 export async function crearReserva(datos) {
     const response = await fetch(
         `${API_URL}/reservas/`,
-        {method: "POST",
+        {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
@@ -11,7 +12,20 @@ export async function crearReserva(datos) {
         }
     );
 
-    const data = await response.json();
+    const texto = await response.text();
+
+    let data;
+
+    try {
+        data = JSON.parse(texto);
+    } catch {
+        console.error("Respuesta que NO es JSON:", texto);
+
+        throw new Error(
+            "El servidor devolvió una respuesta que no es JSON."
+        );
+    }
+
     if (!response.ok) {
         throw new Error(
             data.error || "Error al crear la reserva"
@@ -26,9 +40,25 @@ export async function obtenerClases() {
         `${API_URL}/clases/`
     );
 
-    if (!response.ok) {
-        throw new Error("No se pudieron obtener las clases");
+    const texto = await response.text();
+
+    let data;
+
+    try {
+        data = JSON.parse(texto);
+    } catch {
+        console.error("Respuesta que NO es JSON:", texto);
+
+        throw new Error(
+            "El servidor devolvió una respuesta que no es JSON."
+        );
     }
 
-    return await response.json();
+    if (!response.ok) {
+        throw new Error(
+            "No se pudieron obtener las clases"
+        );
+    }
+
+    return data;
 }

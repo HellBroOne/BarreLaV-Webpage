@@ -13,8 +13,8 @@ function Home() {
             <div className="bg-[#e2b6c9] flex flex-col w-full min-h-screen"> 
                 <Header /> 
                 <section id="inicio" className="pt-16 lg:pt-24"> 
-                    <MainImg />
-                </section> 
+                    <MainImg /> 
+                </section>
                 <SectionImg 
                     title="CONOCE EL BARRE"
                     body="El Barre es un método de entrenamiento que combina elementos del ballet, pilates y yoga para fortalecer y tonificar el cuerpo. Se centra en movimientos precisos y controlados, utilizando la barra como soporte para mejorar la postura, la flexibilidad y la fuerza muscular."
