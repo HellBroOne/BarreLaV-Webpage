@@ -25,11 +25,11 @@ SECRET_KEY = os.getenv(
     "django-insecure-dev-key-change-this"
 )
 
-DEBUG = os.getenv("DEBUG", "True") == "True"
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = os.getenv(
     "ALLOWED_HOSTS",
-    "localhost,127.0.0.1"
+    "localhost,127.0.0.1,barrelav-back.onrender.com",
 ).split(",")
 
 
