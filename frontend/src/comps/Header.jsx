@@ -13,7 +13,7 @@ function Header() {
 
     const links = [
         { name: "INICIO", to: "/" },
-        { name: "CLASES", to: "/clases" },
+        { name: "TIPOS DE CLASES", to: "/clases" },
         { name: "COSTOS", to: "/costos" },
         { name: "UBICACION", to: "/ubicacion" },
     ];
@@ -73,7 +73,7 @@ function Header() {
                         to="/horarios"
                         className="rounded-lg bg-[#c56d93] px-4 py-2 text-md font-semibold text-white transition hover:bg-[#6d2c48]"
                     >
-                        Reserva ahora!
+                        RESERVA AHORA
                     </Link>
 
                     {/* Cerrar sesión */}
@@ -147,7 +147,7 @@ function Header() {
                         onClick={handleLinkClick}
                         className="my-3 rounded-lg bg-[#c56d93] px-4 py-3 text-center text-md font-semibold text-white transition hover:bg-[#6d2c48]"
                     >
-                        Reserva ahora!
+                        RESERVA AHORA
                     </Link>
 
                     {/* Cerrar sesión móvil */}

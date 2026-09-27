@@ -1,5 +1,6 @@
 import Header from "../comps/Header";
 import Footer from "../comps/Footer";
+import barre_ubi from '../assets/barre-local.png'
 
 import { FaLocationDot } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
@@ -48,21 +49,37 @@ function Ubicacion() {
                         {/* CONTENIDO */}
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
                             {/* INFORMACIÓN */}
-                            <div className="bg-[#ffd2dd] rounded-2xl p-6 md:p-8 shadow-lg flex flex-col justify-center">
-                                <p className="text-xl md:text-2xl font-russo text-black mb-4">
-                                    Frente al Jardín Municipal
-                                </p>
-                                <p className="text-base md:text-lg text-black leading-relaxed">
-                                    Colonia Centro, frente al jardín municipal.
-                                    <br />
-                                    A un costado de Farmacia Guadalajara.
-                                </p>
-                                <div className="mt-8">
-                                    <div className="inline-flex items-center gap-2 bg-[#7b1e4e] text-white px-4 py-2 rounded-full text-sm md:text-base">
-                                        <FaLocationDot />
-                                        <span>Constitución #123</span>
+                                <div className="bg-[#ffd2dd] rounded-2xl p-6 md:p-8 shadow-lg flex flex-col lg:flex-row items-center gap-6">
+
+                                    {/* TEXTO */}
+                                    <div className="flex-1 text-center md:text-left">
+                                        <p className="text-xl md:text-2xl font-russo text-black mb-4">
+                                            Frente al Jardín Municipal
+                                        </p>
+
+                                        <p className="text-base md:text-lg text-black leading-relaxed">
+                                            Colonia Centro, frente al jardín municipal.
+                                            <br />
+                                            A un costado de Farmacia Guadalajara.
+                                        </p>
+
+                                        <div className="mt-8">
+                                            <div className="inline-flex items-center gap-2 bg-[#7b1e4e] text-white px-4 py-2 rounded-full text-sm md:text-base">
+                                                <FaLocationDot />
+                                                <span>Constitución #123</span>
+                                            </div>
+                                        </div>
+
                                     </div>
-                                </div>
+
+                                    {/* IMAGEN */}
+                                    <div className="flex-shrink-0 md:p-1">
+                                        <img
+                                            src={barre_ubi}
+                                            alt="Local Barre LaV"
+                                            className="w-48 sm:w-56 lg:w-64 max-w-full h-auto rounded-md object-cover shadow-sm"
+                                        />
+                                    </div>
                             </div>
 
 

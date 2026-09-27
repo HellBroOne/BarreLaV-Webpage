@@ -51,7 +51,7 @@ function CostCont({ desc, cost, vig, bg_color }) {
                     font-russo
                     text-lg md:text-xl
                     tracking-wide
-                    text-[#4b2e20]
+                    text-[#3A0A45]
                     uppercase
                 ">
                     {desc}
@@ -63,7 +63,7 @@ function CostCont({ desc, cost, vig, bg_color }) {
                     <p className="
                         font-russo
                         text-4xl md:text-5xl
-                        text-[#4b2e20]
+                        text-[#3A0A45]
                         tracking-tight
                     ">
                         ${cost}
@@ -74,7 +74,7 @@ function CostCont({ desc, cost, vig, bg_color }) {
                         mt-2
                         font-italianno
                         text-xl md:text-2xl
-                        text-[#795548]
+                        text-[#3A0A45]
                         text-bold
                     ">
                         {vig}

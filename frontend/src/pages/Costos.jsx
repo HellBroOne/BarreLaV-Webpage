@@ -14,7 +14,7 @@ function Costos() {
                 <section className="px-4 py-8 md:px-8 lg:px-12">
 
                     <p className="text-4xl md:text-5xl lg:text-6xl font-lobster tracking-tight text-black">
-                        COSTOS Y MEMBRESÍAS
+                        COSTOS
                     </p>
 
                     <div className="mt-3 h-1 w-32 bg-[#7b1e4e] rounded-full"></div>
@@ -37,7 +37,64 @@ function Costos() {
                         text-[#8b6250]
                         uppercase
                     ">
-                        Estos precios se muestran como información.
+                        - Los pagos se hacen solamente en el <span className="text-red-800 font-bold">local o con retiro sin tarjeta.</span>
+                    </p>
+
+                    <p className="
+                        mt-2
+                        text-sm md:text-base
+                        tracking-widest
+                        text-[#8b6250]
+                        uppercase
+                    ">
+                       - Las cancelaciones se hacen con <span className="text-red-800 font-bold">12 horas de anticipaci&oacute;n.</span>
+                    </p>
+
+                    <p className="
+                        mt-2
+                        text-sm md:text-base
+                        tracking-widest
+                        text-[#8b6250]
+                        uppercase
+                        font-bold
+                    ">
+                       - Horarios del Estudio para pasar a pagar:
+                    </p>
+
+                    <p className="
+                        mt-2
+                        text-sm md:text-base
+                        tracking-widest
+                        text-[#8b6250]
+                        uppercase
+                        font-bold
+                        pl-8
+                    ">
+                        Lunes a Viernes: 10 am a 3 pm y 5 pm a 8:30 pm
+                    </p>
+
+                    <p className="
+                        mt-2
+                        text-sm md:text-base
+                        tracking-widest
+                        text-[#8b6250]
+                        uppercase
+                        font-bold
+                        pl-8
+                    ">
+                        S&aacute;bado: 8 am a 1 pm
+                    </p>
+
+                    <p className="
+                        mt-2
+                        text-sm md:text-base
+                        tracking-widest
+                        text-[#8b6250]
+                        uppercase
+                        font-bold
+                        pl-8
+                    ">
+                        Domingo: 9 am a 1 pm
                     </p>
 
                 </section>
@@ -50,42 +107,42 @@ function Costos() {
                         desc="Primera clase"
                         cost="50"
                         vig="Vigencia 1 día"
-                        bg_color="bg-[#f6df73]"
+                        bg_color="bg-[#CE9ADB]"
                     />
 
                     <CostCont
                         desc="Clase suelta"
                         cost="80"
                         vig="Vigencia 2 días"
-                        bg_color="bg-[#f6df73]"
+                        bg_color="bg-[#CE9ADB]"
                     />
 
                     <CostCont
                         desc="5 clases"
                         cost="375"
                         vig="Vigencia 10 días"
-                        bg_color="bg-[#f6df73]"
+                        bg_color="bg-[#CE9ADB]"
                     />
 
                     <CostCont
                         desc="10 clases"
                         cost="700"
                         vig="Vigencia 30 días"
-                        bg_color="bg-[#f6df73]"
+                        bg_color="bg-[#CE9ADB]"
                     />
 
                     <CostCont
                         desc="15 clases"
                         cost="975"
                         vig="Vigencia 30 días"
-                        bg_color="bg-[#f6df73]"
+                        bg_color="bg-[#CE9ADB]"
                     />
 
                     <CostCont
                         desc="20 clases"
                         cost="1200"
                         vig="Vigencia 30 días"
-                        bg_color="bg-[#f6df73]"
+                        bg_color="bg-[#CE9ADB]"
                     />
 
                 </section>

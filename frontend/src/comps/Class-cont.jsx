@@ -10,7 +10,7 @@ function ClassCont({number, title, description, keyword}){
                 </div>
                 <div className="flex-1 items-center justify-center lg:p-5 p-2">
                     <hr></hr>
-                    <p className="flex flex-col text-center lg:text-lg text-sm">{description}</p>
+                    <p className="flex flex-col text-center lg:text-lg text-sm whitespace-pre-line">{description}</p>
                     <hr></hr>
                     <p className="flex flex-col text-center font-russo lg:text-xl text-md">{keyword}</p>
                 </div>

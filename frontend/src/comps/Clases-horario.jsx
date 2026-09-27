@@ -344,9 +344,7 @@ function ClasesHorario() {
                             return (
 
                                 <div
-
                                     key={clase.id}
-
                                     onClick={() =>
                                         navigate(`/reservar/${clase.id}`)
                                     }
@@ -358,20 +356,6 @@ function ClasesHorario() {
                                     <span className="text-sm font-bold leading-tight">
 
                                         {clase.tipo}
-
-                                    </span>
-
-
-                                    <span className="text-xs my-1 opacity-90">
-
-                                        {clase.enfoque}
-
-                                    </span>
-
-
-                                    <span className="text-xs text-orange-200 font-medium">
-
-                                        Lugares: {clase.lugares_disponibles}
 
                                     </span>
 

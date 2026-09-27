@@ -3,6 +3,7 @@ import Footer from "../comps/Footer";
 import ClassCont from "../comps/Class-cont";
 
 function Clases() {
+
     return (
         <div className="min-h-screen bg-[#e2b6c9] flex flex-col">
 
@@ -28,14 +29,18 @@ function Clases() {
                     <ClassCont
                         number="01"
                         title="BARRE"
-                        description="El barre es una disciplina de entrenamiento físico que fusiona elementos del ballet clásico, el pilates y el yoga, complementados con trabajo de fuerza isométrica y tonificación."
+                        description={`El Barre es una disciplina que crea un entrenamiento completo y accesible para todos los niveles. \n
+                        Su nombre proviene de la “barra” de ballet, un elemento importante en las clases, que se utiliza como apoyo para realizar ejercicios basados en la danza clásica, pero adaptados al fitness. 
+                        Se le suman técnicas de Pilates y posturas de yoga, creando una experiencia que mejora la fuerza, la postura, la flexibilidad y el equilibrio.`}
                         keyword="Ballet • Musculos Bajos • Tonificacion"
                     />
 
                     <ClassCont
                         number="02"
                         title="SCULPT"
-                        description="Sculpt es un entrenamiento de tonificación muscular y definición corporal que combina ejercicios de fuerza, resistencia y movimientos funcionales. Suele ser de mayor intensidad y ritmo más rápido."
+                        description={`Sculpt es una disciplina de entrenamiento funcional y de resistencia que busca esculpir y tonificar el cuerpo de manera integral. \n
+                        Combina ejercicios de fuerza, cardio y estiramiento en una rutina intensa y dinámica, usando accesorios ligeros como pesas, bandas elásticas o el peso corporal. 
+                        Cada sesión trabaja todos los grupos musculares de forma equilibrada y eficiente.`}
                         keyword="Resistencia • Core • Definicion Muscular"
                     />
 

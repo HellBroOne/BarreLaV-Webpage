@@ -17,7 +17,7 @@ function SectionImage({ title, body, image, className }) {
                     <img 
                         src={image} 
                         alt={title}
-                        className="w-48 sm:w-56 lg:w-72 max-w-[200px] sm:max-w-xs h-auto rounded-md object-cover shadow-sm"
+                        className="w-48 sm:w-56 lg:w-130 max-w-[200px] sm:max-w-xs h-auto rounded-md object-cover shadow-sm"
                     />
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import barrmain from "../assets/barr1.png";
+import barrmain from "../assets/barreMain.png";
 
 function MainImg() {
 
@@ -20,9 +20,9 @@ function MainImg() {
                 className="
                     w-[150%]
                     md:w-[100%]
-                    lg:w-[2500px]
+                    lg:w-[24%]
                     h-auto
-                    lg:translate-y-10
+                    lg:translate-y-12
                 "
             />
 
