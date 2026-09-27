@@ -37,7 +37,13 @@ function Costos() {
                         text-[#8b6250]
                         uppercase
                     ">
-                        - Los pagos se hacen solamente en el <span className="text-red-800 font-bold">local o con retiro sin tarjeta.</span>
+                        • Los pagos se hacen solamente en el <span className="text-red-800 font-bold">estudio o con retiro sin tarjeta.</span>
+                    </p>
+                    <p className="pl-3 text-sm md:text-base tracking-widest text-[#8b6250] uppercase">(Enviar comprobante a la 
+                        <a className="pl-1 text-[#8C406B] font-bold underline hover:text-[#8B17A6]" href="https://www.instagram.com/barre_lav/" target="_blank" >
+                             p&aacute;gina de Instagram
+                        </a>
+                    )
                     </p>
 
                     <p className="
@@ -47,7 +53,7 @@ function Costos() {
                         text-[#8b6250]
                         uppercase
                     ">
-                       - Las cancelaciones se hacen con <span className="text-red-800 font-bold">12 horas de anticipaci&oacute;n.</span>
+                       • Las cancelaciones se hacen con <span className="text-red-800 font-bold">12 horas de anticipaci&oacute;n.</span> (Se te reembolsar&aacute; tu clase)
                     </p>
 
                     <p className="
@@ -58,7 +64,7 @@ function Costos() {
                         uppercase
                         font-bold
                     ">
-                       - Horarios del Estudio para pasar a pagar:
+                       • Horarios del Estudio para pasar a pagar:
                     </p>
 
                     <p className="
