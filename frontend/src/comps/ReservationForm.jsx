@@ -127,14 +127,7 @@ function ReservationForm({ clase }) {
                     {clase.tipo}
                 </p>
 
-                <p className="
-                    text-lg
-                    md:text-md
-                    text-[#521434]
-                    mt-1
-                ">
-                    {clase.enfoque}
-                </p>
+
 
                 <div className="
                     flex
