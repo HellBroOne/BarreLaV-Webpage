@@ -38,6 +38,16 @@ class ReservaSerializer(serializers.ModelSerializer):
             "fecha_reserva",
         ]
 
+        extra_kwargs = {
+            "tiene_lesion": {
+                "required": False,
+            },
+            "lesion": {
+                "required": False,
+                "allow_blank": True,
+            }
+        }
+
     def get_clase_info(self, obj):
 
         clase = obj.clase

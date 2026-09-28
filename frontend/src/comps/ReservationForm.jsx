@@ -5,8 +5,8 @@ function ReservationForm({ clase }) {
 
     const [nombre, setNombre] = useState("");
     const [edad, setEdad] = useState("");
-    const [tieneLesion, setTieneLesion] = useState(false);
-    const [lesion, setLesion] = useState("");
+    //const [tieneLesion, setTieneLesion] = useState(false);
+    //const [lesion, setLesion] = useState("");
 
     const [mensaje, setMensaje] = useState("");
     const [error, setError] = useState("");
@@ -34,29 +34,16 @@ function ReservationForm({ clase }) {
     }
 
 
-    async function handleSubmit(e) {
-
+   async function handleSubmit(e) {
         e.preventDefault();
-
         setMensaje("");
         setError("");
 
         try {
-
             const reserva = await crearReserva({
-
                 clase: clase.id,
-
                 nombre: nombre,
-
                 edad: Number(edad),
-
-                tiene_lesion: tieneLesion,
-
-                lesion: tieneLesion
-                    ? lesion
-                    : "",
-
             });
 
             console.log(reserva);
@@ -67,13 +54,9 @@ function ReservationForm({ clase }) {
 
             setNombre("");
             setEdad("");
-            setTieneLesion(false);
-            setLesion("");
 
         } catch (error) {
-
             setError(error.message);
-
         }
     }
 
@@ -244,148 +227,6 @@ function ReservationForm({ clase }) {
             </div>
 
 
-            {/* LESIÓN */}
-            <div className="mb-7">
-
-                <p className="
-                    text-[#3d1230]
-                    font-bold
-                    text-lg
-                    mb-3
-                ">
-                    ¿Tienes alguna lesión?
-                </p>
-
-
-                <div className="flex gap-4">
-
-                    {/* SÍ */}
-                    <label
-                        className={`
-                            flex-1
-                            cursor-pointer
-                            border-2
-                            rounded-lg
-                            p-3
-                            text-center
-                            font-bold
-                            transition
-
-                            ${
-                                tieneLesion
-                                    ? "bg-[#913c6d] text-white border-[#913c6d]"
-                                    : "bg-white text-[#913c6d] border-[#913c6d] hover:bg-[#e8b1c8]"
-                            }
-                        `}
-                    >
-
-                        <input
-                            type="radio"
-                            name="lesion"
-                            checked={tieneLesion === true}
-                            onChange={() => setTieneLesion(true)}
-                            className="hidden"
-                        />
-
-                        Sí
-
-                    </label>
-
-
-                    {/* NO */}
-                    <label
-                        className={`
-                            flex-1
-                            cursor-pointer
-                            border-2
-                            rounded-lg
-                            p-3
-                            text-center
-                            font-bold
-                            transition
-
-                            ${
-                                !tieneLesion
-                                    ? "bg-[#913c6d] text-white border-[#913c6d]"
-                                    : "bg-white text-[#913c6d] border-[#913c6d] hover:bg-[#e8b1c8]"
-                            }
-                        `}
-                    >
-
-                        <input
-                            type="radio"
-                            name="lesion"
-                            checked={tieneLesion === false}
-                            onChange={() => {
-                                setTieneLesion(false);
-                                setLesion("");
-                            }}
-                            className="hidden"
-                        />
-
-                        No
-
-                    </label>
-
-                </div>
-
-
-                {/* CAMPO DINÁMICO */}
-                {tieneLesion && (
-
-                    <div className="mt-4">
-
-                        <label
-                            htmlFor="lesion"
-                            className="
-                                block
-                                text-[#3d1230]
-                                font-bold
-                                mb-2
-                            "
-                        >
-                            ¿Qué lesión tienes?
-                        </label>
-
-                        <input
-                            id="lesion"
-                            type="text"
-                            placeholder="Ej. Rodilla, espalda, hombro..."
-                            value={lesion}
-                            onChange={(e) => setLesion(e.target.value)}
-                            required
-                            maxLength={25}
-                            className="
-                                w-full
-                                bg-white
-                                border-2
-                                border-[#913c6d]
-                                rounded-lg
-                                px-4
-                                py-3
-                                outline-none
-                                text-[#3d1230]
-                                placeholder:text-gray-400
-                                focus:border-[#c05b91]
-                                focus:ring-2
-                                focus:ring-[#c05b91]/30
-                                transition
-                            "
-                        />
-
-                        <p className="
-                            text-xs
-                            text-gray-600
-                            mt-1
-                        ">
-                            Máximo 25 caracteres.
-                        </p>
-
-                    </div>
-
-                )}
-
-            </div>
 
 
             {/* BOTÓN */}
@@ -405,6 +246,7 @@ function ReservationForm({ clase }) {
                     hover:scale-[1.01]
                     active:scale-[0.99]
                     shadow-md
+                    hover:cursor-pointer
                 "
             >
                 Reservar

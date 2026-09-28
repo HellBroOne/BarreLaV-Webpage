@@ -95,7 +95,7 @@ class Reserva(models.Model):
     nombre = models.CharField(max_length=100)
     edad = models.PositiveIntegerField()
     tiene_lesion = models.BooleanField(default=False)
-    lesion = models.CharField(default="" ,max_length=25)
+    lesion = models.CharField(default="" ,max_length=25, blank=True)
     fecha_reserva = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
