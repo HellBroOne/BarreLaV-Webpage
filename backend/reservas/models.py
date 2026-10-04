@@ -3,16 +3,13 @@ from django.utils import timezone
 from datetime import time, datetime, timedelta
 
 class Clase(models.Model):
-
     fecha = models.CharField(max_length=20)
-
     fecha_completa = models.DateField(
         null=True,
         blank=True
     )
-
+    
     hora = models.TimeField()
-
     hora_fin = models.TimeField(
         default=time(0, 0)
     )

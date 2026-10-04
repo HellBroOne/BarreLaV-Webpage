@@ -14,8 +14,12 @@ class ClaseSerial(serializers.ModelSerializer):
         fields = [
             "id",
             "fecha",
+            "fecha_completa",
             "hora",
+            "hora_fin",
             "tipo",
+            "enfoque",
+            "color",
             "capacidad",
             "ocupados",
         ]

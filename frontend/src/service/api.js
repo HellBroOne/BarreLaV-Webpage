@@ -62,3 +62,38 @@ export async function obtenerClases() {
 
     return data;
 }
+
+export async function crearClase(datos, token) {
+    const response = await fetch(
+        `${API_URL}/clases/crear/`,
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`,
+            },
+            body: JSON.stringify(datos),
+        }
+    );
+
+    const texto = await response.text();
+
+    let data;
+
+    try {
+        data = JSON.parse(texto);
+    } catch {
+        console.error("Respuesta que NO es JSON:", texto);
+        throw new Error(
+            "El servidor devolvió una respuesta que no es JSON."
+        );
+    }
+
+    if (!response.ok) {
+        throw new Error(
+            data.error || "Error al crear la clase"
+        );
+    }
+
+    return data;
+}
