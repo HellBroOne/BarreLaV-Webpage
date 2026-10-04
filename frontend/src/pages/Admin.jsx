@@ -253,7 +253,7 @@ function cancelarEdicionClase() {
     async function eliminarClase(id) {
 
         const confirmar = window.confirm(
-            "¿Seguro que quieres eliminar esta clase?"
+            "¿Seguro que quieres eliminar esta clase? Se borrarán todas las reservas asociadas a esta clase."
         );
 
         if (!confirmar) {
