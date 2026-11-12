@@ -161,9 +161,7 @@ class ListaClasesView(APIView):
         data = []
 
         for clase in clases:
-
             data.append({
-
                 "id": clase.id,
                 "fecha": clase.fecha,
                 "fecha_completa": clase.fecha_completa,
@@ -338,19 +336,17 @@ class ClaseAdminDetailView(APIView):
         hora = request.data.get("hora", clase.hora)
         hora_fin = request.data.get("hora_fin", clase.hora_fin)
         capacidad = request.data.get("capacidad", clase.capacidad)
+        enfoque = request.data.get("enfoque", clase.enfoque)
 
         # --------------------------------
         # Convertir horas
         # --------------------------------
-
         try:
-
             if isinstance(hora, str):
                 hora = datetime.strptime(
                     hora,
                     "%H:%M"
                 ).time()
-
             if isinstance(hora_fin, str):
                 hora_fin = datetime.strptime(
                     hora_fin,
@@ -358,7 +354,6 @@ class ClaseAdminDetailView(APIView):
                 ).time()
 
         except (ValueError, TypeError):
-
             return Response(
                 {
                     "error":
@@ -370,9 +365,7 @@ class ClaseAdminDetailView(APIView):
         # --------------------------------
         # Validar horario
         # --------------------------------
-
         if hora_fin <= hora:
-
             return Response(
                 {
                     "error":
@@ -387,11 +380,8 @@ class ClaseAdminDetailView(APIView):
         # --------------------------------
 
         try:
-
             capacidad = int(capacidad)
-
         except (ValueError, TypeError):
-
             return Response(
                 {
                     "error":
@@ -401,7 +391,6 @@ class ClaseAdminDetailView(APIView):
             )
 
         if capacidad < 1:
-
             return Response(
                 {
                     "error":
@@ -413,9 +402,7 @@ class ClaseAdminDetailView(APIView):
         # --------------------------------
         # Comprobar reservas actuales
         # --------------------------------
-
         if capacidad < clase.lugares_ocupados():
-
             return Response(
                 {
                     "error":
@@ -436,7 +423,6 @@ class ClaseAdminDetailView(APIView):
         )
 
         for clase_existente in clases_existentes:
-
             if (
                 hora < clase_existente.hora_fin
                 and hora_fin > clase_existente.hora
@@ -463,6 +449,7 @@ class ClaseAdminDetailView(APIView):
         clase.hora = hora
         clase.hora_fin = hora_fin
         clase.capacidad = capacidad
+        clase.enfoque = enfoque
 
         clase.save()
 
@@ -530,9 +517,7 @@ class ListaClasesAdminView(APIView):
         data = []
 
         for clase in clases:
-
             data.append({
-
                 "id": clase.id,
                 "fecha": clase.fecha,
                 "fecha_completa": clase.fecha_completa,
@@ -544,7 +529,6 @@ class ListaClasesAdminView(APIView):
                 "capacidad": clase.capacidad,
                 "lugares_ocupados": clase.lugares_ocupados(),
                 "lugares_disponibles": clase.lugares_disponibles(),
-
             })
 
         return Response(

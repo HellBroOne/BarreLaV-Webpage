@@ -23,6 +23,7 @@ function Admin() {
         hora: "",
         hora_fin: "",
         capacidad: "",
+        enfoque: "",
     });
 
     const [formulario, setFormulario] = useState({
@@ -35,9 +36,7 @@ function Admin() {
     // --------------------------------
     // Cargar panel
     // --------------------------------
-
     useEffect(() => {
-
         async function cargarPanel() {
             const access = localStorage.getItem("access");
             if (!access) {
@@ -148,6 +147,7 @@ function comenzarEdicionClase(clase) {
         hora: clase.hora,
         hora_fin: clase.hora_fin,
         capacidad: clase.capacidad,
+        enfoque: clase.enfoque,
     });
 }
 
@@ -164,6 +164,7 @@ function cancelarEdicionClase() {
         hora: "",
         hora_fin: "",
         capacidad: "",
+        enfoque: "",
     });
 }
 
@@ -178,7 +179,6 @@ function cancelarEdicionClase() {
                 `${import.meta.env.VITE_API_URL}/admin/clases/${id}/`,
                 {
                     method: "PATCH",
-
                     headers: {
                         "Content-Type": "application/json",
                         Authorization: `Bearer ${access}`,
@@ -189,34 +189,26 @@ function cancelarEdicionClase() {
                         hora: formularioClase.hora,
                         hora_fin: formularioClase.hora_fin,
                         capacidad: Number(formularioClase.capacidad),
+                        enfoque: formularioClase.enfoque,
                     }),
                 }
             );
 
             if (!response.ok) {
-
                 if (response.status === 401) {
-
                     localStorage.removeItem("access");
                     localStorage.removeItem("refresh");
-
                     navigate("/admin/login");
-
                     return;
                 }
-
                 const data = await response.json();
-
                 throw new Error(
                     data.error ||
                     "No se pudo modificar la clase"
                 );
             }
-
             const data = await response.json();
-
             const claseActualizada = data.clase;
-
             setClases((clasesActuales) =>
                 clasesActuales.map((clase) =>
                     clase.id === id
@@ -226,18 +218,15 @@ function cancelarEdicionClase() {
             );
 
             setEditandoClase(null);
-
             setFormularioClase({
                 tipo: "",
                 hora: "",
                 hora_fin: "",
                 capacidad: "",
+                enfoque: "",
             });
-
         } catch (error) {
-
             console.error(error);
-
             alert(
                 error.message ||
                 "Ocurrió un error al modificar la clase."
@@ -249,26 +238,17 @@ function cancelarEdicionClase() {
     // --------------------------------
     // Eliminar clase
     // --------------------------------
-
     async function eliminarClase(id) {
-
-        const confirmar = window.confirm(
-            "¿Seguro que quieres eliminar esta clase? Se borrarán todas las reservas asociadas a esta clase."
-        );
-
+        const confirmar = window.confirm("¿Seguro que quieres eliminar esta clase? Se borrarán todas las reservas asociadas a esta clase.");
         if (!confirmar) {
             return;
         }
-
         const access = localStorage.getItem("access");
-
         try {
-
             const response = await fetch(
                 `${import.meta.env.VITE_API_URL}/admin/clases/${id}/`,
                 {
                     method: "DELETE",
-
                     headers: {
                         Authorization: `Bearer ${access}`,
                     },
@@ -278,17 +258,13 @@ function cancelarEdicionClase() {
             if (!response.ok) {
 
                 if (response.status === 401) {
-
                     localStorage.removeItem("access");
                     localStorage.removeItem("refresh");
-
                     navigate("/admin/login");
-
                     return;
                 }
 
                 const data = await response.json();
-
                 throw new Error(
                     data.error ||
                     "No se pudo eliminar la clase"
@@ -302,9 +278,7 @@ function cancelarEdicionClase() {
             );
 
         } catch (error) {
-
             console.error(error);
-
             alert(
                 error.message ||
                 "Ocurrió un error al eliminar la clase."
@@ -315,52 +289,30 @@ function cancelarEdicionClase() {
     // --------------------------------
     // Eliminar reserva
     // --------------------------------
-
     async function eliminarReserva(id) {
-
-        const confirmar = window.confirm(
-            "¿Seguro que quieres eliminar esta reserva?"
-        );
-
-
+        const confirmar = window.confirm("¿Seguro que quieres eliminar esta reserva?");
         if (!confirmar) {
-
             return;
-
         }
-
-
         const access = localStorage.getItem("access");
-
-
         try {
-
             const response = await fetch(
                 `${import.meta.env.VITE_API_URL}/admin/reservas/${id}/`,
                 {
                     method: "DELETE",
-
                     headers: {
                         Authorization: `Bearer ${access}`,
                     },
                 }
             );
 
-
             if (!response.ok) {
-
                 if (response.status === 401) {
-
                     localStorage.removeItem("access");
-
                     localStorage.removeItem("refresh");
-
                     navigate("/admin/login");
-
                     return;
-
                 }
-
 
                 throw new Error(
                     "No se pudo eliminar la reserva"
@@ -392,19 +344,12 @@ function cancelarEdicionClase() {
     // --------------------------------
     // Comenzar edición
     // --------------------------------
-
     function comenzarEdicion(reserva) {
-
         setEditando(reserva.id);
-
         setFormulario({
-
             nombre: reserva.nombre,
-
             edad: reserva.edad,
-
             tiene_lesion: reserva.tiene_lesion,
-
         });
 
     }
@@ -415,84 +360,53 @@ function cancelarEdicionClase() {
     // --------------------------------
 
     function cancelarEdicion() {
-
         setEditando(null);
-
         setFormulario({
-
             nombre: "",
-
             edad: "",
-
             tiene_lesion: false,
-
         });
-
     }
 
 
     // --------------------------------
     // Modificar reserva
     // --------------------------------
-
     async function modificarReserva(id) {
-
         const access = localStorage.getItem("access");
-
-
         try {
-
             const response = await fetch(
                 `${import.meta.env.VITE_API_URL}/admin/reservas/${id}/`,
                 {
                     method: "PATCH",
-
                     headers: {
-
                         "Content-Type": "application/json",
-
                         Authorization: `Bearer ${access}`,
-
                     },
 
                     body: JSON.stringify({
-
                         nombre: formulario.nombre,
-
                         edad: Number(formulario.edad),
-
                         tiene_lesion: formulario.tiene_lesion,
-
                     }),
                 }
             );
 
 
             if (!response.ok) {
-
                 if (response.status === 401) {
-
                     localStorage.removeItem("access");
-
                     localStorage.removeItem("refresh");
-
                     navigate("/admin/login");
-
                     return;
-
                 }
-
-
                 const data = await response.json();
-
 
                 throw new Error(
                     data.error ||
                     "No se pudo modificar la reserva"
                 );
-
             }
-
 
             const reservaActualizada =
                 await response.json();
@@ -505,14 +419,9 @@ function cancelarEdicionClase() {
                     reserva.id === id
                         ? reservaActualizada
                         : reserva
-
                 )
-
             );
-
-
             setEditando(null);
-
 
         } catch (error) {
 
@@ -527,59 +436,32 @@ function cancelarEdicionClase() {
 
     }
 
-
     // --------------------------------
     // Cargando
     // --------------------------------
-
     if (cargando) {
-
         return (
-
             <div className="min-h-screen bg-[#e2b6c9] flex items-center justify-center">
-
                 <p className="text-[#3d1230] font-bold text-xl">
-
                     Verificando sesión...
-
                 </p>
-
             </div>
-
         );
-
     }
 
-
     return (
-
         <div className="bg-[#e2b6c9] flex flex-col w-full min-h-screen">
-
             <Header />
-
-
             <main className="flex-1 pt-24 px-4 md:px-8 pb-16">
-
                 <div className="max-w-6xl mx-auto">
-
-
                     {/* Encabezado */}
-
                     <div className="mb-8">
-
                         <h1 className="text-3xl md:text-4xl font-bold text-[#3d1230]">
-
                             Panel de administración
-
                         </h1>
-
-
                         <p className="mt-2 text-[#913c6d] text-lg">
-
                             Bienvenida, {usuario}
-
                         </p>
-
                     </div>
 
                     {/* Clases */}
@@ -589,8 +471,7 @@ function cancelarEdicionClase() {
                             <button
                                 type="button"
                                 onClick={() => setMostrarClases(!mostrarClases)}
-                                className="w-full p-6 flex items-center justify-between text-left hover:bg-[#eabbd0] transition cursor-pointer"
-                            >
+                                className="w-full p-6 flex items-center justify-between text-left hover:bg-[#eabbd0] transition cursor-pointer">
                                 <div>
                                     <h2 className="text-2xl font-bold text-[#3d1230]">
                                        Crear Clases
@@ -599,12 +480,10 @@ function cancelarEdicionClase() {
                                         Crea y administra las clases del horario de Barre LaV.
                                     </p>
                                 </div>
-
                                 <span className="text-3xl font-bold text-[#913c6d]">
                                     {mostrarClases ? "−" : "+"}
                                 </span>
                             </button>
-
 
                             {/* Contenido */}
                             {mostrarClases && (
@@ -618,7 +497,6 @@ function cancelarEdicionClase() {
                     {/* Administrar Clases */}
                     <section className="mb-8">
                         <div className="bg-[#f0c4d5] border-2 border-[#913c6d] rounded-2xl shadow-lg overflow-hidden">
-
                             {/* Encabezado */}
                             <button
                                 type="button"
@@ -629,8 +507,7 @@ function cancelarEdicionClase() {
                                         cargarClases();
                                     }
                                 }}
-                                className="w-full p-6 flex items-center justify-between text-left hover:bg-[#eabbd0] transition cursor-pointer"
-                            >
+                                className="w-full p-6 flex items-center justify-between text-left hover:bg-[#eabbd0] transition cursor-pointer">
                                 <div>
                                     <h2 className="text-2xl font-bold text-[#3d1230]">
                                         Administrar Clases
@@ -639,7 +516,6 @@ function cancelarEdicionClase() {
                                         Modifica o elimina las clases del horario.
                                     </p>
                                 </div>
-
                                 <span className="text-3xl font-bold text-[#913c6d]">
                                     {mostrarAdministrarClases ? "−" : "+"}
                                 </span>
@@ -663,12 +539,8 @@ function cancelarEdicionClase() {
                                 {!cargandoClases && clases.length > 0 && (
                                     <div className="space-y-3">
                                         {clases.map((clase) => (
-                                            <div
-                                                key={clase.id}
-                                                className="bg-white border-2 border-[#913c6d] rounded-xl p-4"
-                                            >
+                                            <div key={clase.id} className="bg-white border-2 border-[#913c6d] rounded-xl p-4">
                                                 {editandoClase === clase.id ? (
-
                                                     // --------------------------------
                                                     // FORMULARIO DE EDICIÓN
                                                     // --------------------------------
@@ -697,8 +569,7 @@ function cancelarEdicionClase() {
                                                                             tipo: e.target.value,
                                                                         })
                                                                     }
-                                                                    className="w-full border-2 border-[#913c6d] rounded-lg px-3 py-2 outline-none"
-                                                                >
+                                                                    className="w-full border-2 border-[#913c6d] rounded-lg px-3 py-2 outline-none">
                                                                     <option value="BARRE">
                                                                         BARRE
                                                                     </option>
@@ -735,13 +606,10 @@ function cancelarEdicionClase() {
 
 
                                                             {/* Hora fin */}
-
                                                             <div>
-
                                                                 <label className="block text-[#3d1230] font-bold mb-1">
                                                                     Hora de fin
                                                                 </label>
-
                                                                 <input
                                                                     type="time"
                                                                     value={formularioClase.hora_fin}
@@ -751,20 +619,14 @@ function cancelarEdicionClase() {
                                                                             hora_fin: e.target.value,
                                                                         })
                                                                     }
-                                                                    className="w-full border-2 border-[#913c6d] rounded-lg px-3 py-2 outline-none"
-                                                                />
-
+                                                                    className="w-full border-2 border-[#913c6d] rounded-lg px-3 py-2 outline-none" />
                                                             </div>
 
-
                                                             {/* Capacidad */}
-
                                                             <div>
-
                                                                 <label className="block text-[#3d1230] font-bold mb-1">
                                                                     Capacidad
                                                                 </label>
-
                                                                 <input
                                                                     type="number"
                                                                     min="1"
@@ -777,90 +639,85 @@ function cancelarEdicionClase() {
                                                                     }
                                                                     className="w-full border-2 border-[#913c6d] rounded-lg px-3 py-2 outline-none"
                                                                 />
-
                                                             </div>
 
+                                                            {/* Enfoque */}
+                                                            <div>
+                                                                <label className="block text-[#3d1230] font-bold mb-1">
+                                                                    Enfoque
+                                                                </label>
+                                                                <input
+                                                                    type="text"
+                                                                    value={formularioClase.enfoque}
+                                                                    onChange={(e) =>
+                                                                        setFormularioClase({
+                                                                            ...formularioClase,
+                                                                            enfoque: e.target.value,
+                                                                        })
+                                                                    }
+                                                                    className="w-full border-2 border-[#913c6d] rounded-lg px-3 py-2 outline-none"
+                                                                />
+                                                            </div>
                                                         </div>
 
 
                                                         {/* Botones */}
-
                                                         <div className="flex gap-3 mt-4">
-
                                                             <button
                                                                 onClick={() =>
                                                                     modificarClase(clase.id)
                                                                 }
-                                                                className="flex-1 bg-[#913c6d] hover:bg-[#7b315b] text-white font-bold py-2 px-4 rounded-lg transition cursor-pointer"
-                                                            >
+                                                                className="flex-1 bg-[#913c6d] hover:bg-[#7b315b] text-white font-bold py-2 px-4 rounded-lg transition cursor-pointer">
                                                                 Guardar
                                                             </button>
 
                                                             <button
                                                                 onClick={cancelarEdicionClase}
-                                                                className="flex-1 bg-gray-300 hover:bg-gray-400 text-[#3d1230] font-bold py-2 px-4 rounded-lg transition cursor-pointer"
-                                                            >
+                                                                className="flex-1 bg-gray-300 hover:bg-gray-400 text-[#3d1230] font-bold py-2 px-4 rounded-lg transition cursor-pointer">
                                                                 Cancelar
                                                             </button>
-
                                                         </div>
-
                                                     </div>
-
                                                 ) : (
-
                                                     // --------------------------------
                                                     // VISTA NORMAL
                                                     // --------------------------------
-
                                                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-
                                                         <div className="flex-1">
-
                                                             <div className="flex items-center gap-3 mb-1">
-
                                                                 <h3 className="text-xl font-bold text-[#3d1230]">
                                                                     {clase.tipo}
                                                                 </h3>
-
+                                                                <h5 className="text-sm font-bold text-[#3d1230]">
+                                                                    {clase.enfoque}
+                                                                </h5>
                                                                 <span className="text-sm font-bold text-[#913c6d]">
                                                                     #{clase.id}
                                                                 </span>
-
                                                             </div>
-
-
                                                             <div className="flex flex-wrap gap-x-5 gap-y-1 text-[#5c2947]">
-
                                                                 <span>
                                                                     <strong>Día:</strong>{" "}
                                                                     {clase.fecha}
                                                                 </span>
-
                                                                 <span>
                                                                     <strong>Horario:</strong>{" "}
                                                                     {clase.hora} - {clase.hora_fin}
                                                                 </span>
-
                                                                 <span>
                                                                     <strong>Capacidad:</strong>{" "}
                                                                     {clase.capacidad}
                                                                 </span>
-
                                                                 <span>
                                                                     <strong>Reservados:</strong>{" "}
                                                                     {clase.lugares_ocupados}
                                                                 </span>
-
                                                             </div>
-
                                                         </div>
 
 
                                                         {/* Botones */}
-
                                                         <div className="flex gap-2">
-
                                                             <button
                                                                 onClick={() =>
                                                                     comenzarEdicionClase(clase)
@@ -882,16 +739,11 @@ function cancelarEdicionClase() {
                                                         </div>
 
                                                     </div>
-
                                                 )}
-
                                             </div>
-
                                         ))}
-
                                     </div>
                                 )}
-
                             </div>
                         )}
                         </div>
@@ -918,94 +770,47 @@ function cancelarEdicionClase() {
                                         ? "s"
                                         : ""}
                                 </span>
-
                             </div>
 
-
-
                             {cargandoReservas && (
-
                                 <p className="text-[#5c2947]">
-
                                     Cargando reservas...
-
                                 </p>
-
                             )}
-
-
 
                             {!cargandoReservas &&
                                 reservas.length === 0 && (
-
                                     <div className="bg-white rounded-xl p-6 text-center">
-
                                         <p className="text-[#5c2947] font-semibold">
-
                                             No hay reservas registradas.
-
                                         </p>
-
                                     </div>
-
                                 )}
-
-
 
                             {!cargandoReservas &&
                                 reservas.length > 0 && (
-
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-
-
                                         {reservas.map((reserva) => (
-
-
-                                            <div
-                                                key={reserva.id}
-                                                className="bg-white border-2 border-[#913c6d] rounded-xl p-5 shadow-sm"
-                                            >
-
-
+                                            <div key={reserva.id} className="bg-white border-2 border-[#913c6d] rounded-xl p-5 shadow-sm">
                                                 {editando === reserva.id ? (
-
 
                                                     // --------------------------------
                                                     // FORMULARIO DE EDICIÓN
                                                     // --------------------------------
-
                                                     <div>
-
-
                                                         <div className="flex items-center justify-between mb-5">
-
                                                             <h3 className="text-xl font-bold text-[#3d1230]">
-
                                                                 Modificar reserva
-
                                                             </h3>
-
-
                                                             <span className="text-sm font-bold text-[#913c6d]">
-
                                                                 #{reserva.id}
-
                                                             </span>
-
                                                         </div>
-
-
-
                                                         {/* Nombre */}
-
                                                         <div className="mb-4">
-
                                                             <label className="block text-[#3d1230] font-bold mb-1">
-
                                                                 Nombre
-
                                                             </label>
-
 
                                                             <input
                                                                 type="text"
@@ -1046,13 +851,8 @@ function cancelarEdicionClase() {
                                                             <p className="text-[#3d1230] font-bold mb-2">
                                                                 ¿Tiene lesión?
                                                             </p>
-
-
                                                             <div className="flex gap-5">
-
-
                                                                 <label className="flex items-center gap-2 text-[#5c2947]">
-
                                                                     <input
                                                                         type="radio"
                                                                         name={`lesion-${reserva.id}`}
@@ -1066,15 +866,10 @@ function cancelarEdicionClase() {
                                                                             })
                                                                         }
                                                                     />
-
                                                                     Sí
-
                                                                 </label>
 
-
-
                                                                 <label className="flex items-center gap-2 text-[#5c2947]">
-
                                                                     <input
                                                                         type="radio"
                                                                         name={`lesion-${reserva.id}`}
@@ -1088,50 +883,30 @@ function cancelarEdicionClase() {
                                                                             })
                                                                         }
                                                                     />
-
                                                                     No
-
                                                                 </label>
-
-
                                                             </div>
-
                                                         </div>
 
-
-
                                                         {/* Botones */}
-
                                                         <div className="flex gap-3">
-
-
                                                             <button
                                                                 onClick={() =>
                                                                     modificarReserva(
                                                                         reserva.id
                                                                     )
                                                                 }
-                                                                className="flex-1 bg-[#913c6d] hover:bg-[#7b315b] text-white font-bold py-2 px-4 rounded-lg transition hover:cursor-pointer"
-                                                            >
-
+                                                                className="flex-1 bg-[#913c6d] hover:bg-[#7b315b] text-white font-bold py-2 px-4 rounded-lg transition hover:cursor-pointer">
                                                                 Guardar
-
                                                             </button>
 
                                                             <button
                                                                 onClick={cancelarEdicion}
-                                                                className="flex-1 bg-gray-300 hover:bg-gray-400 text-[#3d1230] font-bold py-2 px-4 rounded-lg transition hover:cursor-pointer"
-                                                            >
+                                                                className="flex-1 bg-gray-300 hover:bg-gray-400 text-[#3d1230] font-bold py-2 px-4 rounded-lg transition hover:cursor-pointer">
                                                                 Cancelar
                                                             </button>
-
-
                                                         </div>
-
-
                                                     </div>
-
-
                                                 ) : (
                                                     // --------------------------------
                                                     // VISTA NORMAL
@@ -1143,13 +918,9 @@ function cancelarEdicionClase() {
                                                             </h3>
 
                                                             <span className="text-sm font-bold text-[#913c6d]">
-
                                                                 #{reserva.id}
-
                                                             </span>
-
                                                         </div>
-
 
 
                                                         <div className="space-y-2 text-[#5c2947]">
@@ -1210,29 +981,19 @@ function cancelarEdicionClase() {
                                             </div>
                                         </div>
 
-
                                                             <p className="text-sm text-gray-500">
-
                                                                 Reserva realizada:
                                                                 {" "}
-
                                                                 {new Date(
                                                                     reserva.fecha_reserva
                                                                 ).toLocaleString(
                                                                     "es-MX"
                                                                 )}
-
                                                             </p>
-
                                                         </div>
 
-
-
                                                         {/* Botones */}
-
                                                         <div className="flex gap-3 mt-5">
-
-
                                                             <button
                                                                 onClick={() =>
                                                                     comenzarEdicion(

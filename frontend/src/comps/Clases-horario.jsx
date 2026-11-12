@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { obtenerClases } from "../service/api";
+//import { obtenerClases } from "../service/api";
 import { useClases } from "../context/ClasesContext";
 
 function ClasesHorario() {
@@ -184,7 +184,6 @@ function ClasesHorario() {
                                 c.hora_fin.slice(0, 5) === horario.hora_fin
                         );
 
-
                         if (!clase) return null;
                         return (
                             <div
@@ -193,122 +192,68 @@ function ClasesHorario() {
                                 onClick={() =>
                                     navigate(`/reservar/${clase.id}`)
                                 }
-                                className="bg-[#a103fc] active:scale-[0.98] transition-transform p-2.5 rounded-lg text-white shadow-sm flex items-center justify-between cursor-pointer w-full box-border"
-                            >
-
+                                className="bg-[#a103fc] active:scale-[0.98] transition-transform p-2.5 rounded-lg text-white shadow-sm flex items-center justify-between cursor-pointer w-full box-border">
                                 <div className="space-y-0.5 pr-2 min-w-0">
-
                                     <div className="text-[10px] bg-[#c2443d] px-1.5 py-0.5 rounded font-bold inline-block whitespace-nowrap leading-none">
-
                                         {horario.texto}
-
                                     </div>
 
-
                                     <h3 className="text-sm font-bold leading-tight truncate">
-
                                         {clase.tipo}
-
                                     </h3>
 
-
                                     <p className="text-[11px] text-purple-200 truncate leading-tight">
-
                                         {clase.enfoque}
-
                                     </p>
-
                                 </div>
-
 
                                 <div className="text-right shrink-0 flex flex-col items-end justify-center">
-
-                                    <span className="text-[10px] font-semibold bg-orange-500/30 text-orange-200 px-1.5 py-0.5 rounded-full border border-orange-300/30 whitespace-nowrap leading-none">
-
-                                        {clase.lugares_disponibles} lugares
-
-                                    </span>
-
-
                                     <span className="text-[10px] underline mt-1 font-medium">
-
                                         Reservar →
-
                                     </span>
-
                                 </div>
-
                             </div>
-
                         );
-
                     })}
 
-
                     {!horarios.some((horario) =>
-
                         clases.some(
-
                             (c) =>
                                 c.fecha === diaSeleccionado &&
                                 c.hora.slice(0, 5) === horario.hora &&
                                 c.hora_fin.slice(0, 5) === horario.hora_fin
-
                         )
-
                     ) && (
-
                         <div className="text-center py-4 text-xs text-gray-500 bg-white/50 rounded-lg border border-dashed border-gray-300">
-
                             No hay clases programadas.
-
                         </div>
-
                     )}
-
                 </div>
-
             </div>
 
 
             {/* ========================================================= */}
             {/* VISTA ESCRITORIO / TABLET */}
             {/* ========================================================= */}
-
             <div className="hidden md:grid md:grid-cols-8 gap-2 items-stretch text-center text-black">
-
                 <div className="p-3 rounded-lg font-bold bg-[#c2443d] text-white text-sm lg:text-base font-mina flex items-center justify-center">
-
                     Horario
-
                 </div>
 
-
                 {dias.map((dia) => (
-
                     <div
-
                         key={dia}
-
                         className="p-3 rounded-lg font-bold bg-[#89167c] text-white text-sm lg:text-base font-mina flex items-center justify-center"
-
                     >
-
                         {dia} {obtenerNumeroDia(dia)}
-
                     </div>
-
                 ))}
 
 
                 {horarios.map((horario) => (
-
                     <div key={horario.texto} className="contents">
-
                         <div className="p-3 rounded-lg font-bold bg-[#c2443d] text-white text-xs lg:text-sm font-mina flex items-center justify-center">
-
                             {horario.texto}
-
                         </div>
 
 
@@ -320,59 +265,36 @@ function ClasesHorario() {
                                     c.fecha === dia &&
                                     c.hora.slice(0, 5) === horario.hora &&
                                     c.hora_fin.slice(0, 5) === horario.hora_fin
-
                             );
 
-
                             if (!clase) {
-
                                 return (
-
                                     <div
-
                                         key={`${dia}-${horario.texto}`}
-
                                         className="bg-gray-50/50 rounded-lg border border-gray-100"
-
                                     />
-
                                 );
-
                             }
 
 
                             return (
-
                                 <div
                                     key={clase.id}
                                     onClick={() =>
                                         navigate(`/reservar/${clase.id}`)
                                     }
-
                                     className="p-3 rounded-lg text-white bg-[#a103fc] hover:brightness-90 transition cursor-pointer flex flex-col justify-between shadow-sm"
-
                                 >
-
                                     <span className="text-sm font-bold leading-tight">
-
                                         {clase.tipo}
-
                                     </span>
-
                                 </div>
-
                             );
-
                         })}
-
                     </div>
-
                 ))}
-
             </div>
-
         </div>
-
     );
 
 }
