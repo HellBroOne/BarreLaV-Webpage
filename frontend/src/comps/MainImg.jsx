@@ -18,8 +18,8 @@ function MainImg() {
                 src={barrmain}
                 alt="Barre LaV"
                 className="
-                    w-[150%]
-                    md:w-[100%]
+                    w-[50%]
+                    md:w-[50%]
                     lg:w-[24%]
                     h-auto
                     lg:translate-y-12
